@@ -5,6 +5,10 @@ var crypto = require("crypto");
 
 const prisma = new PrismaClient();
 
+BigInt.prototype.toJSON = function () {
+  return this.toString();
+};
+
 export default async function handler(req, res) {
   var my_data;
   if (!req.body) {
