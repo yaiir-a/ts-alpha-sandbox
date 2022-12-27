@@ -17,9 +17,9 @@ export default async function handler(req, res) {
       email: `${crypto.randomBytes(5).toString("hex")}@example.com`,
     };
   } else {
-    console.log("data found", req.data);
+    console.log("data found", req.body);
     my_data = {
-      email: req.data.email,
+      email: req.body.email,
     };
   }
 
