@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+
+model users {
+  id                                              BigInt            @id @default(sequence())
+  name                                            String?           @db.String(255)
+  email                                           String?           @unique(map: "users_email_unique") @db.String(255)
+  email_verified_at                               DateTime?         @db.Timestamptz(0)
+  password                                        String?           @db.String(255)
+  remember_token                                  String?           @db.String(100)
+  created_at                                      DateTime?         @db.Timestamptz(0)
+  updated_at                                      DateTime?         @db.Timestamptz(0)
+  country_id                                      BigInt?
+  first_name                                      String?           @db.String(255)
+  last_name                                       String?           @db.String(255)
+  last_login_at                                   DateTime?         @db.Timestamptz(0)
+  auth0_user_id                                   String?           @db.String(255)
+
+  @@index([country_id], map: "users_country_id_foreign")
+  @@index([first_name], map: "users_first_name_index")
+  @@index([last_name], map: "users_last_name_index")
+}
+
