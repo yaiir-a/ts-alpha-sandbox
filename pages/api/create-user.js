@@ -19,7 +19,7 @@ export default async function handler(req, res) {
   } else {
     console.log("data found", req.data);
     my_data = {
-      email: req.data.userEmail,
+      email: req.data.email,
     };
   }
 
