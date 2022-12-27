@@ -14,7 +14,7 @@ export default function Home() {
   if (user) {
     return (
       <div>
-        Welcome {user.name}!! <a href="/api/auth/logout">Logout</a>
+        Welcome {user.name}!!! <a href="/api/auth/logout">Logout</a>
         <main className={styles.main}>
           <Retool
             url="https://tsalpha.retool.com/apps/868f8306-85d2-11ed-bbd2-477497ad87b5/test-admin-app"
